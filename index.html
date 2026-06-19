@@ -43,12 +43,13 @@ html,body{width:100%;min-height:100vh;background:#f0e8f8;display:flex;justify-co
   height:175px;
   z-index:5;
   overflow:visible;
+  mix-blend-mode:multiply;
 }
 #bride{
-  position:absolute;bottom:0;right:18px;height:150px;object-fit:contain;z-index:6;mix-blend-mode:multiply;
+  position:absolute;bottom:0;right:18px;height:150px;object-fit:contain;z-index:6;
 }
 #groom{
-  position:absolute;bottom:1.280em;left:-14px;height:140px;object-fit:contain;z-index:7;mix-blend-mode:multiply;
+  position:absolute;bottom:1.280em;left:-14px;height:140px;object-fit:contain;z-index:7;
   transition:left 1.5s cubic-bezier(0.4,0,0.2,1);
 }
 #groom.arrive{ left:170px; }

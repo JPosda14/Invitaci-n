@@ -1,0 +1,369 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Cristian &amp; Angie · 22.08.2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400;500&family=Great+Vibes&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --gold:#9b59b6;
+  --gold-d:#7d3fa3;
+  --gold-l:#d8b8e8;
+  --sage:#c8a8d8;
+  --sage-d:#9b6fb8;
+  --sage-l:#e8d8f0;
+  --cream:#fffdf8;
+  --cream2:#faf5f8;
+  --text-dark:#3d2d4d;
+  --text-mid:#6b5b7b;
+  --text-soft:#b89bc8;
+}
+html,body{width:100%;min-height:100vh;background:#f0e8f8;display:flex;justify-content:center;font-family:'Jost',sans-serif;}
+#inv{width:100%;max-width:420px;background:var(--cream);position:relative;overflow:visible;}
+
+/* ===== COVER ===== */
+#cover{
+  width:100%;min-height:100vh;display:flex;flex-direction:column;
+  align-items:center;justify-content:flex-start;
+  background:linear-gradient(180deg,#fffdf8 0%,#faf5f8 50%,#f0e8f8 100%);
+  cursor:pointer;overflow:visible;padding:50px 0 30px;
+  position:relative;
+}
+.flower-bg{position:absolute;inset:0;pointer-events:none;z-index:0;}
+
+#cover-wrap{position:relative;display:flex;flex-direction:column;align-items:center;gap:18px;width:100%;}
+
+/* ESCENA PERSONAJES (arriba) */
+#scene{
+  position:relative;
+  width:100%;
+  height:175px;
+  z-index:5;
+  overflow:visible;
+}
+#bride{
+  position:absolute;bottom:0;right:118px;height:150px;object-fit:contain;z-index:6;
+}
+#groom{
+  position:absolute;bottom:0.72em;left:-14px;height:140px;object-fit:contain;z-index:7;
+  transition:left 1.5s cubic-bezier(0.4,0,0.2,1);
+}
+#groom.arrive{ left:100px; }
+
+.heart{position:absolute;font-size:22px;color:var(--gold-d);opacity:0;z-index:8;pointer-events:none;}
+.heart.pop{animation:heartPop 1.4s ease forwards;}
+@keyframes heartPop{
+  0%  {opacity:0;transform:scale(0.3) translateY(0);}
+  30% {opacity:1;transform:scale(1.2) translateY(-10px);}
+  100%{opacity:0;transform:scale(0.8) translateY(-55px);}
+}
+
+.cover-names{font-family:'Playfair Display',serif;font-size:30px;color:var(--text-dark);text-align:center;line-height:1.2;z-index:5;}
+.cover-amp{display:block;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:20px;color:var(--sage-d);margin:4px 0;}
+.cover-sub{font-size:11px;letter-spacing:4px;color:var(--gold-d);text-transform:uppercase;z-index:5;}
+
+/* SOBRE (abajo) */
+#env-wrap{position:relative;z-index:5;display:flex;flex-direction:column;align-items:center;gap:14px;}
+.env-box{position:relative;width:210px;height:148px;perspective:600px;}
+.env-body{position:absolute;inset:0;background:linear-gradient(135deg,#fffdf6,var(--sage-l));border-radius:6px;border:1px solid var(--gold-l);overflow:hidden;}
+.env-flap{position:absolute;top:0;left:0;right:0;height:72px;clip-path:polygon(0 0,50% 65%,100% 0);background:linear-gradient(135deg,var(--sage-l),#d8b8e8);transform-origin:top center;transform:rotateX(0deg);transition:transform 1s ease;z-index:2;}
+.env-flap.open{transform:rotateX(180deg);}
+.env-card{position:absolute;bottom:0;left:10px;right:10px;height:96px;background:#fffefb;border-radius:4px 4px 0 0;border:1px solid var(--gold-l);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:4px;transform:translateY(0);transition:transform 1s ease 0.5s;z-index:1;}
+.env-card.rise{transform:translateY(-42px);}
+.env-initials{font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--gold-d);letter-spacing:4px;font-style:italic;}
+.env-heart{color:var(--sage-d);font-size:14px;}
+.env-seal{position:absolute;bottom:-8px;left:50%;transform:translateX(-50%);width:28px;height:28px;background:var(--sage-d);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:13px;z-index:3;border:2px solid #fff;}
+
+.tap-hint{
+  font-size:12px;color:var(--gold-d);letter-spacing:1px;z-index:5;
+  animation:blink 2s ease-in-out infinite;margin-top:4px;
+  transition:opacity 0.3s;
+}
+.tap-hint.hide{opacity:0;pointer-events:none;}
+@keyframes blink{0%,100%{opacity:0.4}50%{opacity:1}}
+
+/* ===== MAIN CONTENT ===== */
+#main-content{display:none;flex-direction:column;width:100%;}
+#main-content.show{display:flex;}
+.sec{width:100%;padding:40px 28px;position:relative;overflow:visible;}
+.sec::before,.sec::after{content:'';position:absolute;width:100px;height:100px;background-size:contain;background-repeat:no-repeat;background-position:center;pointer-events:none;z-index:1;opacity:0.35;}
+.sec::before{bottom:0;left:0;background-image:url('img/flores1.jpeg');}
+.sec::after{top:0;right:0;background-image:url('img/flores2.jpeg');}
+#s-msg::before,#s-msg::after,#s-std::before,#s-std::after,#s-events::before,#s-events::after,#s-chars::before,#s-chars::after,#s-footer::before,#s-footer::after{display:none;}
+.floral-top{display:none;}
+.divider{width:40px;height:1px;background:linear-gradient(90deg,transparent,var(--sage),transparent);margin:16px auto;}
+.diamond{text-align:center;color:var(--sage-d);font-size:10px;letter-spacing:8px;margin:8px 0;}
+
+#s-hero{background:#faf5f8;text-align:center;padding-top:50px;}
+.hero-eyebrow{font-size:10px;letter-spacing:5px;text-transform:uppercase;color:var(--sage-d);margin-bottom:16px;}
+.hero-names{font-family:'Playfair Display',serif;font-size:38px;color:var(--text-dark);line-height:1.15;}
+.hero-amp{display:block;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:28px;color:var(--gold);margin:4px 0;}
+.hero-date{font-size:12px;letter-spacing:3px;color:var(--text-soft);margin-top:14px;text-transform:uppercase;}
+.hero-chars{position:relative;width:100%;height:160px;margin-top:24px;margin-bottom:-10px;}
+.hero-chars img{position:absolute;height:160px;object-fit:contain;bottom:0;}
+.hero-chars img:first-child { left:50px;bottom:10px; }
+.hero-chars img:last-child { right:80px;bottom:0; }
+
+#s-msg{background:linear-gradient(160deg,var(--sage-l),#f8f0fc);text-align:center;}
+.msg-initials{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:42px;color:var(--sage-d);letter-spacing:6px;margin-bottom:16px;}
+.msg-text{font-family:'Cormorant Garamond',serif;font-size:16px;color:var(--text-dark);line-height:1.9;font-style:italic;padding:0 8px;}
+.msg-big{font-family:'Playfair Display',serif;font-size:18px;color:var(--text-dark);font-weight:700;margin-top:20px;line-height:1.5;text-transform:uppercase;letter-spacing:1px;}
+
+#s-std{background:var(--sage-d);text-align:center;padding:36px 28px;}
+.std-label{font-size:10px;letter-spacing:5px;color:var(--sage-l);text-transform:uppercase;margin-bottom:10px;}
+.std-title{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:26px;color:#fff;margin-bottom:24px;}
+.countdown{display:flex;justify-content:center;gap:16px;}
+.cd-box{background:rgba(255,255,255,0.15);border-radius:10px;padding:14px 10px;min-width:64px;border:1px solid rgba(255,255,255,0.25);}
+.cd-num{font-family:'Playfair Display',serif;font-size:28px;color:#fff;font-weight:700;line-height:1;}
+.cd-lbl{font-size:9px;color:var(--sage-l);letter-spacing:2px;text-transform:uppercase;margin-top:4px;}
+
+#s-cal{background:#faf5f8;text-align:center;}
+.cal-eyebrow{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--sage-d);margin-bottom:8px;}
+.cal-title{font-family:'Playfair Display',serif;font-size:22px;color:var(--text-dark);margin-bottom:20px;}
+.cal-month{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--text-mid);margin-bottom:12px;}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;max-width:300px;margin:0 auto;}
+.cal-head{font-size:10px;color:var(--text-soft);letter-spacing:1px;text-align:center;padding:4px 0;}
+.cal-day{font-size:13px;color:var(--text-dark);text-align:center;width:36px;height:36px;display:flex;align-items:center;justify-content:center;margin:0 auto;border-radius:50%;}
+.cal-day.empty{color:transparent;}
+.cal-day.highlight{background:var(--gold);color:#fff;font-weight:700;animation:pulse-day 2s ease-in-out infinite;}
+@keyframes pulse-day{0%,100%{box-shadow:0 0 0 0 rgba(201,169,97,0.4)}50%{box-shadow:0 0 0 8px rgba(201,169,97,0)}}
+
+#s-events{background:linear-gradient(160deg,var(--sage-l),#f8f0fc);text-align:center;}
+.event-eyebrow{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--sage-d);margin-bottom:24px;}
+.event-card{background:#fff;border-radius:16px;border:1px solid var(--sage-l);padding:20px;margin-bottom:14px;text-align:center;position:relative;overflow:hidden;}
+.event-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--sage-l),var(--gold),var(--sage-l));}
+.event-type{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--sage-d);margin-bottom:6px;display:block;}
+.event-icon{font-size:24px;margin-bottom:8px;display:block;}
+.event-name{font-family:'Playfair Display',serif;font-size:20px;color:var(--text-dark);margin-bottom:6px;}
+.event-time{font-size:14px;color:var(--gold-d);font-weight:500;margin-bottom:4px;}
+.event-place{font-size:12px;color:var(--text-soft);line-height:1.5;}
+.map-btn{display:inline-block;margin-top:12px;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--sage-d);border:1px solid var(--sage);padding:6px 16px;border-radius:20px;cursor:pointer;background:none;text-decoration:none;}
+.map-btn:hover{background:var(--sage-l);}
+
+#s-chars{background:linear-gradient(160deg,var(--sage-l),#faf5f8);text-align:center;padding:36px 28px 0;}
+.chars-quote{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;color:var(--text-dark);line-height:1.8;margin-bottom:8px;padding:0 10px;}
+.chars-sig{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:20px;color:var(--sage-d);}
+.chars-img-wrap{position:relative;width:100%;height:170px;margin-top:16px;}
+.chars-img-wrap img{position:absolute;height:170px;object-fit:contain;bottom:0;}
+.chars-img-wrap img:first-child { left:45px;bottom:15px; }
+.chars-img-wrap img:last-child { right:80px;bottom:0; }
+
+#s-confirm{background:#faf5f8;text-align:center;}
+.confirm-title{font-family:'Playfair Display',serif;font-size:22px;color:var(--text-dark);margin-bottom:8px;}
+.confirm-sub{font-size:13px;color:var(--text-soft);line-height:1.6;margin-bottom:24px;}
+.confirm-btn{display:block;width:100%;max-width:220px;margin:0 auto 12px;padding:14px 20px;background:var(--sage-d);color:#fff;border:none;border-radius:30px;font-size:13px;letter-spacing:2px;text-transform:uppercase;cursor:pointer;font-family:'Jost',sans-serif;}
+.confirm-btn:hover{background:#5f7150;}
+.confirm-note{font-size:11px;color:var(--text-soft);font-style:italic;margin-top:4px;}
+
+#s-footer{background:var(--sage-d);text-align:center;padding:28px;}
+.footer-initials{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:36px;color:#fff;letter-spacing:4px;}
+.footer-date{font-size:11px;letter-spacing:3px;color:var(--sage-l);margin-top:6px;}
+.footer-note{font-size:10px;color:rgba(255,255,255,0.45);margin-top:16px;letter-spacing:1px;}
+.signature-name{font-family:'Great Vibes',cursive;font-size:48px;color:var(--text-dark);font-weight:400;}
+</style>
+</head>
+<body>
+<div id="inv">
+
+<!-- ===== COVER ===== -->
+<div id="cover" onclick="handleTap()">
+  <div class="flower-bg" style="position:absolute;inset:0;pointer-events:none;z-index:0;">
+    <img src="img/flores2.jpeg" alt="" style="position:absolute;top:0;right:0;width:150px;height:150px;opacity:0.35;object-fit:contain;"/>
+    <img src="img/flores1.jpeg" alt="" style="position:absolute;top:280px;left:0;width:150px;height:150px;opacity:0.35;object-fit:contain;"/>
+  </div>
+
+  <div id="cover-wrap">
+
+    <!-- ESCENA PERSONAJES (arriba) -->
+    <div id="scene">
+      <img id="bride" src="img/Novia.png" alt="novia">
+      <img id="groom" src="img/novio.png" alt="novio en moto">
+
+      <!-- corazones que aparecen al encontrarse -->
+      <div class="heart" id="h1" style="bottom:118px;left:185px;">&#9829;</div>
+      <div class="heart" id="h2" style="bottom:132px;left:203px;font-size:16px;">&#9829;</div>
+      <div class="heart" id="h3" style="bottom:112px;left:172px;font-size:14px;">&#9829;</div>
+    </div>
+
+    <div class="cover-names">
+      <span class="signature-name">Cristian</span><br>
+      <span class="cover-amp">&amp;</span>
+      <span class="signature-name">Angie</span>
+    </div>
+    <div class="cover-sub">Est&#225;s invitado a nuestra boda</div>
+
+    <!-- SOBRE (abajo) -->
+    <div id="env-wrap">
+      <div class="env-box">
+        <div class="env-body">
+          <div class="env-card" id="env-card">
+            <div class="env-initials">C &amp; A</div>
+            <div class="env-heart">&#9829;</div>
+          </div>
+          <div class="env-seal">&#9829;</div>
+        </div>
+        <div class="env-flap" id="env-flap"></div>
+      </div>
+    </div>
+
+    <div class="tap-hint" id="tap-hint">Toca para abrir la invitaci&#243;n &#9829;</div>
+  </div>
+</div>
+
+<!-- ===== MAIN CONTENT ===== -->
+<div id="main-content">
+
+  <div class="sec" id="s-hero">
+    <div class="floral-top"></div>
+    <p class="hero-eyebrow">Nuestra boda</p>
+    <h1 class="hero-names"><span class="signature-name">Cristian</span><span class="hero-amp">&amp;</span><span class="signature-name">Angie</span></h1>
+    <p class="hero-date">22 · 08 · 2026</p>
+    <div class="hero-chars">
+      <img src="img/novio.png" alt="novio">
+      <img src="img/Novia.png" alt="novia">
+    </div>
+  </div>
+
+  <div class="sec" id="s-msg">
+    <div class="msg-initials">C &amp; A</div>
+    <div class="divider"></div>
+    <p class="msg-text">Es el plan perfecto de Dios, nuestras vidas se encontraron. Con la bendici&#243;n de &#201;l y de nuestros padres, hemos elegido unir nuestras vidas para siempre.</p>
+    <div class="divider"></div>
+    <p class="msg-big">Los invitamos a<br>acompa&#241;arnos en<br>este d&#237;a tan especial</p>
+    <div class="diamond">&#9670; &#9670; &#9670;</div>
+  </div>
+
+  <div class="sec" id="s-std">
+    <p class="std-label">Ten en mente la fecha</p>
+    <p class="std-title">22 de Agosto, 2026</p>
+    <div class="countdown">
+      <div class="cd-box"><div class="cd-num" id="cd-d">--</div><div class="cd-lbl">días</div></div>
+      <div class="cd-box"><div class="cd-num" id="cd-h">--</div><div class="cd-lbl">horas</div></div>
+      <div class="cd-box"><div class="cd-num" id="cd-m">--</div><div class="cd-lbl">min</div></div>
+      <div class="cd-box"><div class="cd-num" id="cd-s">--</div><div class="cd-lbl">seg</div></div>
+    </div>
+  </div>
+
+  <div class="sec" id="s-cal">
+    <div class="floral-top"></div>
+    <p class="cal-eyebrow">El gran d&#237;a</p>
+    <h2 class="cal-title">Agosto · 2026</h2>
+    <p class="cal-month">S&#225;bado 22 de agosto</p>
+    <div class="cal-grid" id="cal-grid">
+      <div class="cal-head">Lu</div><div class="cal-head">Ma</div><div class="cal-head">Mi</div>
+      <div class="cal-head">Ju</div><div class="cal-head">Vi</div><div class="cal-head">Sa</div>
+      <div class="cal-head">Do</div>
+    </div>
+  </div>
+
+  <div class="sec" id="s-events">
+    <div class="floral-top"></div>
+    <p class="event-eyebrow">Los esperamos en</p>
+    <div class="event-card">
+      <span class="event-type">Ceremonia &amp; Recepci&#243;n</span>
+      <img src="img/Iglesia.jpeg" alt="Iglesia" class="event-icon" style="width:auto;height:70px;display:inline-block;vertical-align:middle;border-radius:4px;">
+      <div class="event-name">Iglesia de El Caimo / Villa del Sin&#250;</div>
+      <div class="event-time">3:30 PM</div>
+      <div class="event-place">Vereda El Caimo</div>
+      <a class="map-btn" href="https://maps.app.goo.gl/J3uYiMxKwv8ukSkU6" target="_blank" rel="noopener">Ver mapa</a>
+    </div>
+  </div>
+
+  <div class="sec" id="s-chars">
+    <p class="chars-quote">"Desde el instante en que tus ojos encontraron los m&#237;os, supe que t&#250; y yo para siempre."</p>
+    <p class="chars-sig">&#8212; C &amp; A</p>
+    <div class="chars-img-wrap" style="display:flex;align-items:center;justify-content:center;">
+      <img src="img/argollas.jpeg" alt="argollas" style="position:static;height:160px;width:auto;object-fit:contain;border-radius:12px;mix-blend-mode:multiply;">
+    </div>
+  </div>
+
+  <div class="sec" id="s-confirm">
+    <div class="floral-top"></div>
+    <p style="font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--sage-d);margin-bottom:12px;">Confirmar asistencia</p>
+    <h2 class="confirm-title">&#191;Nos acompa&#241;as?</h2>
+    <p class="confirm-sub">Por favor confirma tu asistencia<br>antes del 01 de agosto de 2026.</p>
+    <a href="https://wa.me/573217236908?text=Confirmo%20mi%20asistencia%20a%20la%20boda%20de%20Cristian%20y%20Angie" target="_blank" class="confirm-btn" style="display:inline-block;text-decoration:none;">Confirmar aqu&#237;</a>
+    <p class="confirm-note">Gracias por ser parte de este cap&#237;tulo tan importante de nuestra historia.</p>
+  </div>
+
+  <div class="sec" id="s-footer">
+    <div class="footer-initials">C &amp; A</div>
+    <div class="footer-date">22 · 08 · 2026</div>
+    <div class="footer-note">CON AMOR · CRISTIAN &amp; ANGIE</div>
+  </div>
+</div>
+</div>
+
+<script>
+var tapped = false;
+
+function handleTap() {
+  if (tapped) return;
+  tapped = true;
+
+  document.getElementById('tap-hint').classList.add('hide');
+
+  // Novio se acerca a la novia (beso)
+  document.getElementById('groom').classList.add('arrive');
+
+  // Corazones al encontrarse
+  setTimeout(function() {
+    document.getElementById('h1').classList.add('pop');
+    setTimeout(function(){ document.getElementById('h2').classList.add('pop'); }, 200);
+    setTimeout(function(){ document.getElementById('h3').classList.add('pop'); }, 380);
+  }, 1400);
+
+  // Abrir el sobre
+  setTimeout(function() {
+    document.getElementById('env-flap').classList.add('open');
+    document.getElementById('env-card').classList.add('rise');
+  }, 2000);
+
+  // Mostrar invitación
+  setTimeout(function() {
+    document.getElementById('cover').style.display = 'none';
+    document.getElementById('main-content').classList.add('show');
+    startCountdown();
+    buildCalendar();
+  }, 3200);
+}
+
+function startCountdown() {
+  var target = new Date('2026-08-22T15:30:00');
+  function tick() {
+    var diff = target - new Date();
+    if (diff <= 0) return;
+    var d = Math.floor(diff / 86400000);
+    var h = Math.floor((diff % 86400000) / 3600000);
+    var m = Math.floor((diff % 3600000) / 60000);
+    var s = Math.floor((diff % 60000) / 1000);
+    document.getElementById('cd-d').textContent = String(d).padStart(2,'0');
+    document.getElementById('cd-h').textContent = String(h).padStart(2,'0');
+    document.getElementById('cd-m').textContent = String(m).padStart(2,'0');
+    document.getElementById('cd-s').textContent = String(s).padStart(2,'0');
+  }
+  tick();
+  setInterval(tick, 1000);
+}
+
+function buildCalendar() {
+  var grid = document.getElementById('cal-grid');
+  for (var i = 0; i < 5; i++) {
+    var e = document.createElement('div');
+    e.className = 'cal-day empty';
+    e.textContent = '·';
+    grid.appendChild(e);
+  }
+  for (var d = 1; d <= 31; d++) {
+    var e = document.createElement('div');
+    e.className = 'cal-day' + (d === 22 ? ' highlight' : '');
+    e.textContent = d;
+    grid.appendChild(e);
+  }
+}
+</script>
+</body>
+</html>

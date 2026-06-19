@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<title>Cristian &amp; Angie · Nuestra Boda</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ===== COVER ===== -->
+<div id="cover" onclick="handleTap()">
+  <div class="flower-bg" style="position:absolute;inset:0;pointer-events:none;z-index:0;">
+    <img src="img/flores2.jpeg" alt="" style="position:absolute;top:0;right:0;width:150px;height:150px;opacity:0.35;object-fit:contain;">
+    <img src="img/flores1.jpeg" alt="" style="position:absolute;top:280px;left:0;width:150px;height:150px;opacity:0.35;object-fit:contain;">
+  </div>
+
+  <div id="cover-wrap">
+    <div id="scene">
+      <img id="groom" src="img/novio.png" alt="novio">
+      <img id="bride" src="img/Novia.png" alt="novia">
+      <div class="heart" id="h1" style="bottom:118px;left:185px;">&#9829;</div>
+      <div class="heart" id="h2" style="bottom:132px;left:203px;font-size:16px;">&#9829;</div>
+      <div class="heart" id="h3" style="bottom:112px;left:172px;font-size:14px;">&#9829;</div>
+    </div>
+
+    <div class="cover-names">
+      <span class="signature-name">Cristian</span><br>
+      <span class="cover-amp">&amp;</span>
+      <span class="signature-name">Angie</span>
+    </div>
+    <div class="cover-date">22 · 08 · 2026</div>
+    <div class="cover-sub">&#161;Nos casamos!</div>
+  </div>
+
+  <div id="tap-hint">Toca la pantalla</div>
+</div>
+
+<!-- ===== MAIN CONTENT ===== -->
+<div id="main-content">
+
+  <div id="hero">
+    <div class="floral-top"></div>
+    <p class="hero-eyebrow">Nuestra boda</p>
+    <h1 class="hero-names"><span class="signature-name">Cristian</span><span class="hero-amp">&amp;</span><span class="signature-name">Angie</span></h1>
+    <p class="hero-date">22 · 08 · 2026</p>
+    <div class="hero-chars">
+      <img src="img/novio.png" alt="novio">
+      <img src="img/Novia.png" alt="novia">
+    </div>
+  </div>
+
+  <div class="sec" id="s-msg">
+    <div class="msg-initials">C &amp; A</div>
+    <div class="divider"></div>
+    <p class="msg-text">Es el plan perfecto de Dios, nuestras vidas se encontraron. Con la bendici&#243;n de &#201;l y de nuestros padres, hemos elegido unir nuestras vidas para siempre.</p>
+    <div class="divider"></div>
+    <p class="msg-big">Los invitamos a<br>acompa&#241;arnos en<br>este d&#237;a tan especial</p>
+    <div class="diamond">&#9670; &#9670; &#9670;</div>
+  </div>
+
+  <div class="sec" id="s-std">
+    <p class="std-label">Ten en mente la fecha</p>
+    <p class="std-title">22 de Agosto, 2026</p>
+    <div class="countdown">
+      <div class="cd-box"><div class="cd-num" id="cd-d">--</div><div class="cd-lbl">d&#237;as</div></div>
+      <div class="cd-box"><div class="cd-num" id="cd-h">--</div><div class="cd-lbl">horas</div></div>
+      <div class="cd-box"><div class="cd-num" id="cd-m">--</div><div class="cd-lbl">min</div></div>
+      <div class="cd-box"><div class="cd-num" id="cd-s">--</div><div class="cd-lbl">seg</div></div>
+    </div>
+  </div>
+
+  <div class="sec" id="s-events">
+    <div class="ev-row">
+      <div class="ev-card">
+        <div class="ev-icon">&#9733;</div>
+        <h3>Ceremonia</h3>
+        <p>4:00 PM</p>
+        <div class="event-place">Vereda El Caimo</div>
+        <a class="map-btn" href="https://maps.app.goo.gl/J3uYiMxKwv8ukSkU6" target="_blank" rel="noopener">Ver mapa</a>
+      </div>
+      <div class="ev-card">
+        <div class="ev-icon">&#127864;</div>
+        <h3>Recepci&#243;n</h3>
+        <p>5:30 PM</p>
+        <div class="event-place">Vereda El Caimo</div>
+        <a class="map-btn" href="https://maps.app.goo.gl/J3uYiMxKwv8ukSkU6" target="_blank" rel="noopener">Ver mapa</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec" id="s-chars">
+    <p class="chars-quote">"Desde el instante en que tus ojos encontraron los m&#237;os, supe que t&#250; y yo para siempre."</p>
+    <p class="chars-sig">&#8212; C &amp; A</p>
+    <div class="chars-img-wrap">
+      <img src="img/novio.png" alt="novio">
+      <img src="img/Novia.png" alt="novia">
+    </div>
+  </div>
+
+  <div class="sec" id="s-confirm">
+    <div class="floral-top"></div>
+    <p style="font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--sage-d);margin-bottom:12px;">Confirmar asistencia</p>
+    <h2 class="confirm-title">&#191;Nos acompa&#241;as?</h2>
+    <p class="confirm-sub">Por favor confirma tu asistencia<br>antes del 01 de agosto de 2026.</p>
+    <a href="https://wa.me/573217236908?text=Confirmo%20mi%20asistencia%20a%20la%20boda%20de%20Cristian%20y%20Angie" target="_blank" class="confirm-btn" style="display:inline-block;text-decoration:none;">Confirmar aqu&#237;</a>
+    <p class="confirm-note">Gracias por ser parte de este cap&#237;tulo tan importante de nuestra historia.</p>
+  </div>
+
+  <div class="sec" id="s-footer">
+    <div class="footer-initials">C &amp; A</div>
+    <div class="footer-date">22 · 08 · 2026</div>
+    <div class="footer-note">CON AMOR · CRISTIAN &amp; ANGIE</div>
+  </div>
+</div>
+
+<script src="js/script.js"></script>
+</body>
+</html>
